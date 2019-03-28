@@ -4,7 +4,6 @@ public class Commission {
 int weekly_sales;
 	
 	Commission(){
-		
 	}
 	
 	//set weekly sales.

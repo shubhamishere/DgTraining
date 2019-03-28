@@ -212,7 +212,7 @@ public class Payroll {
 					System.out.println("Wrong input.");
 					System.exit(0);
 				}
-				//qwertyu________-----------------------
+				
 			}
 		}
 		

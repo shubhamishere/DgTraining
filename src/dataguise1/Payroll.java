@@ -1,9 +1,18 @@
 package dataguise1;
 /*OUTPUT format of this code:-
  * 1.) Create entries of employees by selecting the type of employee (Total 4 types)
- *     -->first name, last name, email, employee ID [Common for all types]
- *     -->other fields depends upon the employee type selected during runtime.
- *     -->*/
+ *     a)-->first name, last name, email, employee ID [Common for all types]
+ *     b)-->other fields depends upon the employee type selected during runtime.
+ * 2.) Enter email id to search in employees
+ * 3.) Enter the type of employee
+ * 		If email match found
+ * 			a) Calculate and display weekly salary/payout.
+ * 		If email match not found
+ * 			b) Display msg 'email not found'
+ * 4.) Do you want to continue making employee entries?
+ * 			a) if Yes, process execution goes to step 1
+ * 			b) if No, program terminates with a Thank You note.
+ * */
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.ListIterator;
@@ -112,9 +121,11 @@ public class Payroll {
 			}
 			sc.nextLine();
 			System.out.println("----------------------------");
+			//-------- [2] ---------
 			System.out.println("Enter an email ID to search in employees record: ");
 			String searchEmail = sc.nextLine();
 			
+			//-------- [3] ---------
 			System.out.println("Enter employee type to search in (enter b/w 1-4 ONLY):\n1. Salaried\n2. Commission\n3. Salaried-commission\n4. Hourly ");
 			int typeOfEmployee = sc.nextInt();
 			
@@ -122,6 +133,7 @@ public class Payroll {
 				ListIterator<Salaried> it = salariedList.listIterator();
 				while(it.hasNext()) {
 					Salaried ob = it.next();
+					//--------- [3].a ----------
 					if(searchEmail.equalsIgnoreCase(ob.getEmail())) {
 						searchFlag = 1;
 						System.out.println("EMAIL MATCH FOUND!!");
@@ -137,6 +149,7 @@ public class Payroll {
 				ListIterator<Commission> it = commissionList.listIterator();
 				while(it.hasNext()) {
 					Commission ob = it.next();
+					//--------- [3].a ----------
 					if(searchEmail.equalsIgnoreCase(ob.getEmail())) {
 						searchFlag = 1;
 						System.out.println("EMAIL MATCH FOUND!!");
@@ -153,6 +166,7 @@ public class Payroll {
 				ListIterator<SalariedCommission> it = salariedCommissionList.listIterator();
 				while(it.hasNext()) {
 					SalariedCommission ob = it.next();
+					//--------- [3].a ----------
 					if(searchEmail.equalsIgnoreCase(ob.getEmail())) {
 						searchFlag = 1;
 						System.out.println("EMAIL MATCH FOUND!!");
@@ -171,6 +185,7 @@ public class Payroll {
 				ListIterator<Hourly> it = hourlyList.listIterator();
 				while(it.hasNext()) {
 					Hourly ob = it.next();
+					//--------- [3].a ----------
 					if(searchEmail.equalsIgnoreCase(ob.getEmail())) {
 						searchFlag = 1;
 						System.out.println("EMAIL MATCH FOUND!!");
@@ -187,23 +202,21 @@ public class Payroll {
 				System.out.println("Invalid input!");
 				System.exit(0);
 			}
+			//--------- [3].b ----------
 			if(searchFlag==0) {
 				System.out.println("Employee not found with your email query: " + "'" + searchEmail + "'");
 			}
-//			ListIterator<Hourly> it = hourlyList.listIterator();
-//			while(it.hasNext()) {
-//				Hourly ob = it.next();
-//				System.out.println("Email of: " + ob.getFirstName());
-//				System.out.println(ob.getEmail());
-//			}
 			
+			//--------- [4] ----------
 			if(input==1) {
 				System.out.println("-----------------------------");
 				System.out.println("Do you want to continue?\n1. Yes\n2. No");
 				int choice2 = sc.nextInt();
+				//--------- [4].a ----------
 				if(choice2==1) {
 					input = 1;
 				}
+				//--------- [4].b ----------
 				else if(choice2==2) {
 					System.out.println("Thank you");
 					input = 0;

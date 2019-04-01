@@ -52,6 +52,7 @@ public class Payroll {
 				continue;
 			}
 			
+			//-------- [1].a ---------
 			System.out.print("Enter first name of " + empType + " employee: ");
 			String fname = sc.nextLine();
 			
@@ -66,6 +67,7 @@ public class Payroll {
 			
 			switch(choice) {
 				case 1:
+					//-------- [1].b ---------
 					System.out.print("Enter this week salary: ");
 					int salary = sc.nextInt();
 					
@@ -78,6 +80,7 @@ public class Payroll {
 					salariedList.add(salariedEmp);
 					break;
 				case 2:
+					//-------- [1].b ---------
 					System.out.print("Enter this week sale: ");
 					int sale = sc.nextInt();
 					
@@ -90,6 +93,7 @@ public class Payroll {
 					commissionList.add(commissionEmp);
 					break;
 				case 3:
+					//-------- [1].b ---------
 					System.out.print("Enter this week salary: ");
 					int salary2 = sc.nextInt();
 					System.out.print("Enter this week sale: ");
@@ -107,6 +111,7 @@ public class Payroll {
 					salariedCommissionList.add(salariedCommissionEmp);
 					break;
 				case 4:
+					//-------- [1].b ---------
 					System.out.print("Enter hours worked: ");
 					int hoursWorked = sc.nextInt();
 					
